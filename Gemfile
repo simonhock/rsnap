@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 gem "bower-rails", "~> 0.7"
 
-ruby "2.1.7"
+ruby "2.1.1"
 gem "rails", "~> 4.1.3"
 gem "pg"
 
