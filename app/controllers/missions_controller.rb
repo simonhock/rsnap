@@ -106,7 +106,8 @@ class MissionsController < ApplicationController
       unless params[:source_code].eql?("")
         mission = Mission.find_by(id:  (params[:source_code]).to_i)
         project_name = mission.title
-        file_path = mission.source_code.path
+        file_path = Tempfile.new([params[:title],".xml"]).path
+        mission.source_code.copy_to_local_file(nil,file_path)
       end
       
       create_temp_file(project_name, params[:mission][:title], file_path)
