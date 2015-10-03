@@ -14,6 +14,10 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/trusty32"
 
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
+  end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -64,6 +68,7 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: "/vagrant/vagrant-build.sh"
+  config.vm.provision "shell", inline: "/vagrant/vagrant-build.sh"
+  # config.vm.provision "shell", inline: "/vagrant/vagrant-build-1.sh"
   # config.vm.provision "shell", inline: "/vagrant/test-vagrant-install.sh"
 end

@@ -40,3 +40,4 @@ rsnap_development.dump
 nohup.out
 start_server
 .vagrant
+id_rsa.pub
